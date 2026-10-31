@@ -1,0 +1,168 @@
+/* ---------- Colori ---------- */
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f5f6f8;
+  --line: #e3e6ea;
+  --ink: #16181d;
+  --ink-soft: #5b6270;
+  --accent: #0f766e;
+  --accent-ink: #ffffff;
+  --errore: #b42318;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e1013;
+    --bg-soft: #171a1f;
+    --line: #262a31;
+    --ink: #eceef2;
+    --ink-soft: #9aa2b1;
+    --accent: #4fd1c0;
+    --accent-ink: #0e1013;
+    --errore: #ff9a8f;
+  }
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 2rem;
+}
+
+h1 {
+  font-size: 1.75rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem;
+}
+
+a { color: var(--ink); text-decoration-color: var(--accent); text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------- Ricerca ---------- */
+label { display: block; font-weight: 600; margin-bottom: 0.35rem; }
+
+.campo { display: flex; gap: 0.5rem; }
+
+input[type="text"] {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+}
+input[type="text"]:hover { border-color: var(--ink-soft); }
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+#pulsante-cerca {
+  font-weight: 600;
+  color: var(--accent-ink);
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+}
+#pulsante-cerca:hover:not(:disabled) { filter: brightness(0.92); }
+#pulsante-cerca:disabled { opacity: 0.6; cursor: progress; }
+
+/* Ultime ricerche */
+.recenti {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.9rem;
+  font-size: 0.9rem;
+}
+.recenti-titolo { color: var(--ink-soft); margin-right: 0.2rem; }
+.recente {
+  font-size: 0.85rem;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.15rem 0.7rem;
+}
+.recente:hover { border-color: var(--ink-soft); background: var(--bg-soft); }
+
+/* Messaggi */
+#messaggio { min-height: 1.6em; margin: 1rem 0; color: var(--ink-soft); }
+#messaggio.errore { color: var(--errore); font-weight: 600; }
+
+/* ---------- Meteo attuale ---------- */
+.attuale {
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.luogo { font-size: 1.15rem; margin: 0 0 0.75rem; }
+
+.temperatura { display: flex; align-items: center; gap: 0.75rem; margin: 0; }
+.icona { font-size: 3rem; line-height: 1; }
+.gradi { font-size: 3.5rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+
+.descrizione { margin: 0.5rem 0 1.25rem; color: var(--ink-soft); font-size: 1.1rem; }
+
+.dettagli { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; margin: 0; }
+.dettagli div { min-width: 6rem; }
+.dettagli dt { color: var(--ink-soft); font-size: 0.85rem; }
+.dettagli dd { margin: 0; font-weight: 600; }
+
+/* ---------- Previsioni ---------- */
+.previsioni { margin-top: 2rem; }
+.previsioni h2 { font-size: 1.15rem; margin: 0 0 0.5rem; }
+
+.giorni { list-style: none; margin: 0; padding: 0; }
+.giorno {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--line);
+}
+.giorno:first-child { border-top: 0; }
+.nome-giorno { text-transform: capitalize; }
+.icona-piccola { font-size: 1.4rem; line-height: 1; }
+.minmax { min-width: 5.5rem; text-align: right; font-variant-numeric: tabular-nums; }
+.minimo { color: var(--ink-soft); }
+
+/* ---------- Piè di pagina ---------- */
+footer {
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem 2.5rem;
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+}
+footer p { margin: 0; border-top: 1px solid var(--line); padding-top: 1rem; }
