@@ -24,15 +24,6 @@ Cerca una città e vedi il meteo attuale e le previsioni dei prossimi giorni.
 2. Con le coordinate si scaricano meteo attuale e previsioni.
 3. I dati vengono mostrati nella pagina.
 
-Scelte che vale la pena notare:
-
-- **Niente `innerHTML`:** la pagina si costruisce con `createElement` e `textContent`, così un nome di città strano non può eseguire codice (XSS).
-- **Errori previsti e imprevisti separati:** i primi hanno un messaggio per l'utente, i secondi vanno in console.
-- **Timeout di 10 secondi** sulle richieste, per non lasciare l'utente in attesa all'infinito.
-- **Ricerche sovrapposte:** se se ne lancia una seconda mentre la prima è in corso, la risposta vecchia viene ignorata.
-- **`localStorage` protetto da `try/catch`:** se il browser lo blocca, l'app funziona lo stesso.
-
-
 ## Struttura
 
 ```
